@@ -7,8 +7,22 @@ function Laiture_dnd() {
   const [stores, setStores] = useState(initialData);
 
   const onDragEnd = (result) => {
-    // Handle drag end logic here
-    console.log("Drag ended", result);
+    const { source, destination, type } = result;
+    if (!destination) return;
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    )
+      return;
+
+    if (type === "group") {
+      const reorderedStores = [...stores];
+      const sourceIndex = source.index;
+      const destinationIndex = destination.index;
+      const [removedStore] = reorderedStores.splice(sourceIndex, 1);
+      reorderedStores.splice(destinationIndex, 0, removedStore);
+      setStores(reorderedStores);
+    }
   };
 
   return (

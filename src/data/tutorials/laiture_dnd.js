@@ -127,3 +127,5 @@ function StoreList({ name, items = [], id }) {
 }
 
 export default Laiture_dnd;
+// https://www.youtube.com/watch?v=YJ5EMzyimfc
+// https://react-beautiful-dnd.netlify.app/?path=/story/complex-vertical-list--nested-vertical-lists

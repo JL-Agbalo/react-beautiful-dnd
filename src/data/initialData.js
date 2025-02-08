@@ -1,4 +1,4 @@
-const DATA = [
+export const initialData = [
   {
     id: "0e2f0db1-5457-46b0-949e-8032d2f9997a",
     name: "Walmart",
@@ -30,5 +30,3 @@ const DATA = [
     tint: 3,
   },
 ];
-
-export default DATA;

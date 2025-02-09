@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { initialData } from "../initialData";
 import "./laiture_dnd.css";
+import { initialData } from "../../data/initialData";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function Laiture_dnd() {

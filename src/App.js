@@ -1,12 +1,8 @@
 import "./App.css";
-import Laiture_dnd from "./data/tutorials/laiture_dnd";
+import LaitureDnd from "./tutorials/laiture/laiture_dnd";
 
 function App() {
-  return (
-    <div className="App">
-      <Laiture_dnd />
-    </div>
-  );
+  return <div className="App">{/* <LaitureDnd /> */}</div>;
 }
 
 export default App;

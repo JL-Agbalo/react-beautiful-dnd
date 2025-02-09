@@ -2,6 +2,7 @@ import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import Task from "./Task";
+import "./koding.css";
 
 const Container = styled.div`
   background-color: #f4f5f7;
@@ -28,22 +29,26 @@ const Title = styled.h3`
   text-align: center;
 `;
 
-function Column(title, task, id) {
+function Column({ title, task, id }) {
   return (
-    <Container>
+    <Container className="column">
       <Title style={{ backgroundColor: "lightblue", position: "stick" }}>
         {title}
       </Title>
       <Droppable droppableId={id}>
-        {(provided, snapshot) => {
+        {(provided, snapshot) => (
           <TaskList
             ref={provided.innerRef}
             {...provided.droppableProps}
             isDraggingOver={snapshot.isDraggingOver}
           >
+            <Task
+              task={{ id: 123, title: "Make a progress board application" }}
+              index="1"
+            ></Task>{" "}
             {provided.placeholder}
-          </TaskList>;
-        }}
+          </TaskList>
+        )}
       </Droppable>
     </Container>
   );

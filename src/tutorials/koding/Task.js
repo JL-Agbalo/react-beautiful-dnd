@@ -44,27 +44,6 @@ function bgcolorChange(props) {
 
 function Task({ task, index }) {
   return (
-    <Container>
-      <div style={{ display: "flex", justifyContent: "start", padding: 2 }}>
-        <span>
-          <small>
-            <div id={task.id}> </div>
-          </small>
-        </span>
-      </div>
-
-      <div style={{ display: "flex", justifyContent: "start", padding: 2 }}>
-        <TextContent>{task.title}</TextContent>
-      </div>
-      <Icons>
-        <Avatar
-          src={"https://joesch.moe/api/v1/random?key=" + task.id}
-        ></Avatar>
-      </Icons>
-    </Container>
-  );
-
-  return (
     <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
       {(provided, snapshot) => (
         <Container

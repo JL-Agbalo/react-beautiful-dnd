@@ -42,10 +42,9 @@ function Column({ title, task, id }) {
             {...provided.droppableProps}
             isDraggingOver={snapshot.isDraggingOver}
           >
-            <Task
-              task={{ id: 123, title: "Make a progress board application" }}
-              index="1"
-            ></Task>{" "}
+            {task.map((task, index) => (
+              <Task key={task.id} task={task} index={index} />
+            ))}
             {provided.placeholder}
           </TaskList>
         )}

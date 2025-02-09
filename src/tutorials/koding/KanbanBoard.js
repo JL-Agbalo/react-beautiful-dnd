@@ -56,6 +56,8 @@ function KanbanBoard() {
         }}
       >
         <Column title="To Do" task={incomplete} id={"1"} />
+        <Column title="Done" task={completed} id={"2"} />
+        <Column title="Backlog" task={[]} id={"3"} />
       </div>
     </DragDropContext>
   );

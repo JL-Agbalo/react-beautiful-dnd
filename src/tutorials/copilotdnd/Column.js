@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "./Task";
+import { Droppable } from "react-beautiful-dnd";
 
 const Column = ({ column }) => {
   return (
@@ -7,10 +8,21 @@ const Column = ({ column }) => {
       <div className={`card bg-secondary text-white mb-4 tint-${column.tint}`}>
         <div className="card-body text-center">
           <h2 className="card-title">{column.name}</h2>
-          <div className="tasks">
-            {column.items &&
-              column.items.map((task) => <Task key={task.id} task={task} />)}
-          </div>
+          <Droppable droppableId={column.id}>
+            {(provided) => (
+              <div
+                className="tasks"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {column.items &&
+                  column.items.map((task, index) => (
+                    <Task key={task.id} task={task} index={index} />
+                  ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
         </div>
       </div>
     </div>

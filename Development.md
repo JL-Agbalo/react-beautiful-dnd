@@ -115,3 +115,10 @@ export default DnDExample;
 - 📖 [Official Docs](https://github.com/atlassian/react-beautiful-dnd)
 - 📹 [YouTube Tutorials](https://www.youtube.com/results?search_query=react+beautiful+dnd)
 - 💻 [CodeSandbox Examples](https://codesandbox.io/s/react-beautiful-dnd)
+
+## 7. Splice
+
+- Array.prototype.splice(start, [deleteCount], [itemToAdd...])
+- removes elements from an array
+- will modify the exsiting array
+- return a new array of the elements removed

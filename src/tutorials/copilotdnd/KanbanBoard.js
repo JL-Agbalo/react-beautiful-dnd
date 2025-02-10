@@ -8,11 +8,11 @@ const KanbanBoard = () => {
 
   const onDragEnd = (result) => {
     const { source, destination } = result;
-    console.log("result: ", result);
-    if (!destination) {
-      return;
-    }
 
+    // If there's no destination (dropped outside any droppable), do nothing
+    if (!destination) return;
+
+    // Find the source and destination columns
     const sourceColumn = columns.find(
       (column) => column.id === source.droppableId
     );
@@ -20,11 +20,15 @@ const KanbanBoard = () => {
       (column) => column.id === destination.droppableId
     );
 
+    // Create a copy of the items in the source column
     const sourceItems = Array.from(sourceColumn.items);
-    const [removed] = sourceItems.splice(source.index, 1);
+    // Remove the dragged item from the source column
+    const [movedItem] = sourceItems.splice(source.index, 1);
 
     if (source.droppableId === destination.droppableId) {
-      sourceItems.splice(destination.index, 0, removed);
+      // If the item is dropped in the same column, insert it back to the new position
+      sourceItems.splice(destination.index, 0, movedItem);
+      // Update the columns state with the new items order
       const newColumns = columns.map((column) =>
         column.id === source.droppableId
           ? { ...column, items: sourceItems }
@@ -32,8 +36,12 @@ const KanbanBoard = () => {
       );
       setColumns(newColumns);
     } else {
+      // If the item is dropped in a different column
+      // Create a copy of the items in the destination column
       const destinationItems = Array.from(destinationColumn.items);
-      destinationItems.splice(destination.index, 0, removed);
+      // Insert the item into the new position in the destination column
+      destinationItems.splice(destination.index, 0, movedItem);
+      // Update the columns state with the new items order in both columns
       const newColumns = columns.map((column) => {
         if (column.id === source.droppableId) {
           return { ...column, items: sourceItems };

@@ -49,15 +49,4 @@ export const initialData = [
     ],
     tint: 4,
   },
-  {
-    id: "09876543-21fe-dcba-0987-654321fedcba",
-    name: "Best Buy",
-    items: [
-      { id: "fedcba98-7654-3210-fedc-ba9876543210", name: "Laptop" },
-      { id: "01234567-89ab-cdef-0123-456789abcdef", name: "Headphones" },
-      { id: "i1j2k3l4-5678-90ab-cdef-1234567890ab", name: "Mouse" },
-      { id: "j1k2l3m4-5678-90ab-cdef-1234567890ab", name: "Keyboard" },
-    ],
-    tint: 5,
-  },
 ];
